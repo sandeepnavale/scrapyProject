@@ -9,7 +9,6 @@ import pymongo
 from   scrapy.conf import settings
 import logging
 import requests
-import html2text
 import newspaper
 
 class BbccrawlerPL(object):
@@ -21,26 +20,8 @@ class NewsTextPL(object):
         article.download()
         article.parse()
         item['newsText'] = article.text
-        # item['author'] = ','.join(article.authors)
         item['author'] = article.authors[0]
-        item['newsHeadline'] = article.summary
-        article.is_media_news()
-        return item
-
-#
-class TextPipeline(object):
-    def process_item(self,item, spider):
-        try:
-            response = requests.get(item['newsUrl'])
-            # doc = Document(response.text)
-            # content = Document(doc.content()).summary()
-            # h = html2text.HTML2Text()
-            # h.ignore_links = True
-            # articleText = h.handle(content)
-            # articleText = articleText.replace('\r', ' ').replace('\n', ' ').strip()
-            # item['newsText'] = articleText
-        except Exception:
-            raise DropItem("Failed to extract article text from: " + item['newsUrl'])
+        item['newsHeadline'] = article.title
         return item
 
 class MongoPL(object):
