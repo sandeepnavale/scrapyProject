@@ -15,8 +15,8 @@ SPIDER_MODULES = ['bbcCrawler.spiders']
 NEWSPIDER_MODULE = 'bbcCrawler.spiders'
 
 # MY CHANGES
-FEED_FORMAT='csv'
-FEED_URI="BBC.csv"
+# FEED_FORMAT='csv'
+# FEED_URI="BBC.csv"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'bbcCrawler (+http://www.yourdomain.com)'
@@ -70,8 +70,9 @@ CONCURRENT_REQUESTS_PER_IP = 2
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'bbcCrawler.pipelines.BbccrawlerPipeline': 300,
-    'bbcCrawler.pipelines.MongoDBPipeline': 600,
+   'bbcCrawler.pipelines.BbccrawlerPL': 300,
+    'bbcCrawler.pipelines.MongoPL': 600,
+    'bbcCrawler.pipelines.NewsTextPL':200,
     }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -97,7 +98,7 @@ ITEM_PIPELINES = {
 
 # MONGODB_URI        = 'mongodb://localhost:27017/bbc_news'
 MONGODB_URI        = 'localhost'
-MONGODB_DB         = 'bbc_news'
-MONGODB_COLLECTION = 'news_articles'
+MONGODB_DB         = 'bbc_db'
+MONGODB_COLLECTION = 'articles'
 MONGODB_SERVER = "localhost"
 MONGODB_PORT = 27017

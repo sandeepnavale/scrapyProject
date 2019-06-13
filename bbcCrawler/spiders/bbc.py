@@ -5,7 +5,7 @@ import os
 import logging
 import json
 from ..items import BbccrawlerItem
-
+import scrapy
 
 class BbcSpider(CrawlSpider):
     name = 'bbc'
@@ -68,7 +68,8 @@ class BbcSpider(CrawlSpider):
                 newsItem['author'] = self.getAuthor(hxs)
                 self.urlFile.write(str(response.url) + '\n')
                 yield newsItem
-            except Exception:
+            except Exception as e:
+                print(e)
                 pass
 
     def getAuthor(self, hxs):
