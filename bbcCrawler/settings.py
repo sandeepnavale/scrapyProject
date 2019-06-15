@@ -73,7 +73,7 @@ ITEM_PIPELINES = {
    'bbcCrawler.pipelines.BbccrawlerPL': 300,
     'bbcCrawler.pipelines.MongoPL': 600,
     'bbcCrawler.pipelines.NewsTextPL':200,
-    'bbcCrawler.pipelines.DropIfEmptyPipeline' :400,
+    'bbcCrawler.pipelines.DropIfEmptyPL' :400,
     }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
