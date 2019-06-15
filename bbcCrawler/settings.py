@@ -26,7 +26,7 @@ ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
-CONCURRENT_REQUESTS = 3
+# CONCURRENT_REQUESTS = 3
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
@@ -35,7 +35,7 @@ CONCURRENT_REQUESTS = 3
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
 CONCURRENT_REQUESTS_PER_DOMAIN = 2
-CONCURRENT_REQUESTS_PER_IP = 2
+# CONCURRENT_REQUESTS_PER_IP = 2
 
 # Disable cookies (enabled by default)
 #COOKIES_ENABLED = False
@@ -73,6 +73,7 @@ ITEM_PIPELINES = {
    'bbcCrawler.pipelines.BbccrawlerPL': 300,
     'bbcCrawler.pipelines.MongoPL': 600,
     'bbcCrawler.pipelines.NewsTextPL':200,
+    'bbcCrawler.pipelines.DropIfEmptyPipeline' :400,
     }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -96,9 +97,9 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-# MONGODB_URI        = 'mongodb://localhost:27017/bbc_news'
-MONGODB_URI        = 'localhost'
-MONGODB_DB         = 'bbc_db'
+# using localhost, instead of compose.io as currently it doesn't support Mongo DB
+MONGODB_URI = 'localhost'
+MONGODB_DB = 'bbc_db'
 MONGODB_COLLECTION = 'articles'
 MONGODB_SERVER = "localhost"
 MONGODB_PORT = 27017

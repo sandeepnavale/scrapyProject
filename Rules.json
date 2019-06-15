@@ -5,9 +5,9 @@
 	],
 	"rules": [
 		{
-			"allow": ["https://www.bbc.com/news/*"],
+			"allow": ["https://www.bbc.com/news"],
 			"follow": false,
-			"callback": "parseItems"
+			"callback": "parse_items"
 		}
 	],
 	"paths": {

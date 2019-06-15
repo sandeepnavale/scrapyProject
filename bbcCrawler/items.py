@@ -9,8 +9,8 @@ import scrapy
 
 
 class BbccrawlerItem(scrapy.Item):
-    newsHeadline = scrapy.Field()
-    newsUrl = scrapy.Field()
-    newsText = scrapy.Field()
+    headline = scrapy.Field()
+    url = scrapy.Field()
+    article = scrapy.Field()
     author = scrapy.Field()
-
+    date = scrapy.Field()
