@@ -3,7 +3,7 @@ import unittest
 
 
 class TestBBC_DB(unittest.TestCase):
-    ''' Test DB for entries from Scrapy crawl. should be > 0 '''
+    ''' Testcases  for checking DB entries from Scrapy crawl. should be > 0 '''
 
     def __init__(self, *args, **kwargs):
         ''' Init for Test cases'''
