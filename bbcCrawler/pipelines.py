@@ -27,7 +27,7 @@ class NewsTextPL:
             item['url'])  # using Newspaper3k, instead of "Readability"
         article.download()
         article.parse()
-        item['article'] = article.text
+        item['article'] = article.text.replace('\r', ' ').strip()
         if len(article.authors):
             item['author'] = article.authors[0]
         else:
