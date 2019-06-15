@@ -33,8 +33,6 @@ class NewsTextPL:
         else:
             item['author'] = " "
         item['headline'] = article.title
-        item['date'] = article.publish_date
-
         return item
 
 

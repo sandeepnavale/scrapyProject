@@ -51,6 +51,12 @@ class TestBbcDatabase(unittest.TestCase):
         print(f'Identified {count_article} articles ')
         self.assertGreater(count_article, 0)
 
+    def test_for_date_entries(self):
+        """ testing for article entries in DB """
+        count_date = self.collection.count_documents({"date": {"$ne": " "}})
+        print(f'Identified {count_date} date ')
+        self.assertGreater(count_date, 0)
+
 
 if __name__ == '__main__':
     unittest.main()

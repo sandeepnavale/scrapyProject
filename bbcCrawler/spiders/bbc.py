@@ -81,6 +81,11 @@ class BbcSpider(CrawlSpider):
                 logging.info('Parsing URL: ' + str(response.url))
                 news_item = BbcCrawlerItem()
                 news_item['url'] = response.url
+                date = response.xpath(
+                    '//div[@class="date date--v2"]/text()').extract()
+                if len(date):
+                    news_item['date'] = date[0]
+
                 self.urlFile.write(str(response.url) + '\n')
                 yield news_item
             except Exception as e:
