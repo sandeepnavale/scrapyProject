@@ -13,14 +13,14 @@ from newspaper import Article
 
 
 class BbccrawlerPL:
-    ''' BBC crawler pipeline '''
+    """ BBC crawler pipeline """
 
     def process_item(self, item, spider):
         return item
 
 
 class NewsTextPL:
-    ''' Pipeline to process News Articles '''
+    """ Pipeline to process News Articles """
 
     def process_item(self, item, spider):
         article = Article(
@@ -60,10 +60,10 @@ class MongoPL:
 
 
 class DropIfEmptyPL:
-    ''' Pipeline to drop empy items '''
+    """ Pipeline to drop empy items """
 
     def process_item(self, item, spider):
-        ''' proces item for Drop if empty case '''
+        """ process item for Drop if empty case """
 
         if ((not item['headline']) or (not item['url'])
                 or (not item['article']) or (not item['author'])):

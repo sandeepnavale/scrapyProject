@@ -4,7 +4,7 @@ import json
 from scrapy.spiders import CrawlSpider
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import Rule
-from ..items import BbccrawlerItem
+from ..items import BbcCrawlerItem
 
 
 # using CrawlSpider instead of scrapy.Spider
@@ -79,7 +79,7 @@ class BbcSpider(CrawlSpider):
         if str(response.url) not in self.visitedUrls:
             try:
                 logging.info('Parsing URL: ' + str(response.url))
-                news_item = BbccrawlerItem()
+                news_item = BbcCrawlerItem()
                 news_item['url'] = response.url
                 self.urlFile.write(str(response.url) + '\n')
                 yield news_item

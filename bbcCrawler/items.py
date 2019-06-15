@@ -8,7 +8,7 @@
 import scrapy
 
 
-class BbccrawlerItem(scrapy.Item):
+class BbcCrawlerItem(scrapy.Item):
     headline = scrapy.Field()
     url = scrapy.Field()
     article = scrapy.Field()
