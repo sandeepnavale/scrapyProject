@@ -1,3 +1,5 @@
 scrapy
 newspaper3k
 pymongo
+flask_restful
+flask_pymongo
