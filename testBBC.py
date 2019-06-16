@@ -1,6 +1,6 @@
 import pymongo
 import unittest
-
+import restApi
 
 class TestBbcDatabase(unittest.TestCase):
     """ Testcases  for checking DB entries from Scrapy crawl. should be > 0 """
@@ -57,6 +57,9 @@ class TestBbcDatabase(unittest.TestCase):
         print(f'Identified {count_date} date ')
         self.assertGreater(count_date, 0)
 
+    def test_rest_get_all_news(self):
+        rApi = restApi.AllNews()
+        print(rApi.get_all_news())
 
 if __name__ == '__main__':
     unittest.main()
